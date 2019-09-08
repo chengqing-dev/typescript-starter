@@ -2,6 +2,7 @@ import BooleanSchema from "../src/boolean_schema";
 import Arguments from "../src/arguments";
 import NumberSchema from "../src/number_schema";
 import StringSchema from "../src/string_schema";
+import ListSchema from "../src/list_schema";
 
 test("return true when parse args given a Boolean schema 'f' and the args '-f'",() => {
    const schema = new BooleanSchema("f");
@@ -151,4 +152,36 @@ test("return 'abc-def' when parse args given a string schema 'f' and the args '-
    const result = new Arguments([schema],"-f abc-def").parse();
 
    expect(result).toEqual([{"name":"f","type":"string","value":"abc-def"}]);
+});
+
+test("return ['abc','def','ghi'] when parse args given a list schema 'f' and the args '-f abc,def,ghi'",() => {
+   const schema = new ListSchema("f");
+
+   const result = new Arguments([schema],"-f abc,def,ghi").parse();
+
+   expect(result).toEqual([{ "name": "f","type":"list","value":["abc","def","ghi"]}]);
+});
+
+test("return ['test'] when parse args given a list schema 'f' with default value ['test']",() => {
+   const schema = new ListSchema("f",["test"]);
+
+   const result = new Arguments([schema],"").parse();
+
+   expect(result).toEqual([{ "name": "f","type":"list","value":["test"]}]);
+});
+
+test("return [] when parse args given a list schema 'f'",() => {
+   const schema = new ListSchema("f");
+
+   const result = new Arguments([schema],"").parse();
+
+   expect(result).toEqual([]);
+});
+
+test("return ['abc','def','ghi'] when parse args given a list schema 'f' and the args '-f abc,-5,-config,true'",() => {
+   const schema = new ListSchema("f");
+
+   const result = new Arguments([schema],"-f abc,-5,-config,true").parse();
+
+   expect(result).toEqual( [{ "name": "f","type":"list","value":["abc","-5","-config","true"]}]);
 });
