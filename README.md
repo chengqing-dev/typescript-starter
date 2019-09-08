@@ -87,6 +87,7 @@ Given 一个number的schema，其名称为f, 当输入参数为``
 When parse
 
 Then  []
+```
 
 5. 给定一个number的schema，其名称为f, 当输入参数为`-p 20`,抛出异常 "invalid arguments"
 ```
