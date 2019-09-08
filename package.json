@@ -17,6 +17,9 @@
   "license": "MIT",
   "repository": "https://gitlab.realks.cn/containerized-dev-environment/typescript-starter.git",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "precommit": "npm run test-eslint",
+    "prepush": "npm run test-eslint",
+    "test-eslint": "eslint src/**/*.ts test/**/*.ts"
   }
 }

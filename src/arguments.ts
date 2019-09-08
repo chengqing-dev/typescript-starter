@@ -14,24 +14,24 @@ export default class Arguments {
     }
 
     public parse(): object{
-        let parsedResult: object[] = [];
+        const parsedResult: object[] = [];
 
         const regex = new RegExp(/-[a-zA-Z]\w*/g);
-        let values = this.args.split(regex).slice(1);
-        let params = this.args.match(regex);
+        const values = this.args.split(regex).slice(1);
+        const params = this.args.match(regex);
 
-        for(let param_index in params){
-            const param = params[param_index].match(/[a-zA-Z]\w*/g)[0];
-            let schema = this.schemas[param];
+        for(const paramIndex in params){
+            const param = params[paramIndex].match(/[a-zA-Z]\w*/g)[0];
+            const schema = this.schemas[param];
             if(schema === undefined){
                 throw Error("invalid arguments")
             }
             this.removeParsedSchemaName(schema.name);
-            parsedResult.push({ "name": schema.name,"type":schema.type,"value":schema.gernerateValue(values[param_index].trim())})
+            parsedResult.push({ "name": schema.name,"type":schema.type,"value":schema.gernerateValue(values[paramIndex].trim())})
         }
 
-        for(let unparsedSchemaName of this.unparsedSchemaNames){
-            let schema = this.schemas[unparsedSchemaName];
+        for(const unparsedSchemaName of this.unparsedSchemaNames){
+            const schema = this.schemas[unparsedSchemaName];
             parsedResult.push({ "name": schema.name,"type":schema.type,"value":schema.defaultValue})
         }
 
