@@ -1,5 +1,7 @@
 # typescript-starter
 
+[![Build Status](https://dev.azure.com/chengqing-dev/typescript-starter/_apis/build/status/chengqing-dev.typescript-starter?branchName=master)](https://dev.azure.com/chengqing-dev/typescript-starter/_build/latest?definitionId=1&branchName=master)
+
 字符串参数列表
 
 ## boolean 类型
