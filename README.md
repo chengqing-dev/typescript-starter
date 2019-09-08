@@ -53,7 +53,7 @@ Then [{ "name": "f","type":"boolean","value":true},{ "name": "d","type":"boolean
 
 1. 给定一个number的schema，其名称为f, 当输入参数为`-f 15`,解析结果为 { "name": "f","type":"number","value":15}]
 ```
-Given 一个number的schema，其名称为f, 当输入参数为`-f`
+Given 一个number的schema，其名称为f, 当输入参数为`-f 15`
 
 When parse
 
@@ -62,7 +62,7 @@ Then [{ "name": "f","type":"number","value":15}]
 
 2. 给定一个number的schema，其名称为f, 当输入参数为`-f -15`,解析结果为 { "name": "f","type":"number","value":-15}]
 ```
-Given 一个number的schema，其名称为f, 当输入参数为`-f`
+Given 一个number的schema，其名称为f, 当输入参数为`-f 15`
 
 When parse
 
@@ -111,4 +111,22 @@ Given 两个number的schema，其名称分别为f和d,当输入参数是`-f`
 When parse
 
 Then [{ "name": "f","type":"number","value":25},{ "name": "d","type":"number","value":-25}]
+```
+
+8. 给定一个number的schema，其名称为f, 当输入参数为`-f 15.023`,解析结果为 { "name": "f","type":"number","value":15.023}]
+```
+Given 一个number的schema，其名称为f, 当输入参数为`-f 15.023`
+
+When parse
+
+Then [{ "name": "f","type":"number","value":15.023}]
+```
+
+9. 给定一个number的schema，其名称为f, 当输入参数为`-f -15.023`,解析结果为 { "name": "f","type":"number","value":-15.023}]
+```
+Given 一个number的schema，其名称为f, 当输入参数为`-f -15.023`
+
+When parse
+
+Then [{ "name": "f","type":"number","value":-15.023}]
 ```

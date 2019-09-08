@@ -1,5 +1,5 @@
 import Schema from "./schema";
-type SchemaTypes = boolean
+type SchemaTypes = boolean | number
 
 export default class Arguments {
     schemas: {[name: string]: Schema<SchemaTypes>} = {};
@@ -33,7 +33,9 @@ export default class Arguments {
 
         for(const unparsedSchemaName of this.unparsedSchemaNames){
             const schema = this.schemas[unparsedSchemaName];
-            parsedResult.push({ "name": schema.name,"type":schema.type,"value":schema.defaultValue})
+            if(schema.defaultValue) {
+                parsedResult.push({"name": schema.name, "type": schema.type, "value": schema.defaultValue})
+            }
         }
 
         return parsedResult;
