@@ -1,8 +1,8 @@
-import BooleanSchema from "../src/boolean_schema";
+import BooleanSchema from "../src/schema/boolean_schema";
 import Arguments from "../src/arguments";
-import NumberSchema from "../src/number_schema";
-import StringSchema from "../src/string_schema";
-import ListSchema from "../src/list_schema";
+import NumberSchema from "../src/schema/number_schema";
+import StringSchema from "../src/schema/string_schema";
+import ListSchema from "../src/schema/list_schema";
 
 test("return true when parse args given a Boolean schema 'f' and the args '-f'",() => {
    const schema = new BooleanSchema("f");

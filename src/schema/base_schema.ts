@@ -1,4 +1,4 @@
-export default abstract class Schema<T> {
+export default abstract class BaseSchema<T> {
     readonly name: string;
     readonly defaultValue: T;
     readonly type: string;

@@ -1,6 +1,6 @@
-import Schema from "./schema";
+import BaseSchema from "./base_schema";
 
-export default class BooleanSchema extends Schema<boolean>{
+export default class BooleanSchema extends BaseSchema<boolean>{
 
     constructor(name: string, defaultValue = false) {
         super(name,"boolean",defaultValue);

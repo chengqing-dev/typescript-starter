@@ -1,6 +1,6 @@
-import Schema from "./schema";
+import BaseSchema from "./base_schema";
 
-export default class NumberSchema extends Schema<number>{
+export default class NumberSchema extends BaseSchema<number>{
 
     constructor(name: string, defaultValue: number = undefined) {
         super(name,"number",defaultValue);
