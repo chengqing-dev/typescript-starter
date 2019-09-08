@@ -6,7 +6,7 @@ export default class BooleanSchema extends Schema<boolean>{
         super(name,"Boolean",defaultValue);
     }
 
-    gernerateValue(value: any): boolean {
+    gernerateValue(value: string): boolean {
         if(value === ""){
             return true
         }

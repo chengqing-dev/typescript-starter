@@ -2,9 +2,9 @@ import BooleanSchema from "../src/boolean_schema";
 import Arguments from "../src/arguments";
 
 test("return true when parse args given a Boolean schema 'f' and the args '-f'",() => {
-   let schema = new BooleanSchema("f");
+   const schema = new BooleanSchema("f");
 
-   let result = new Arguments([schema],"-f").parse();
+   const result = new Arguments([schema],"-f").parse();
 
    expect(result).toEqual([{"name":"f","type":"Boolean","value":true}]);
 });
@@ -28,10 +28,10 @@ test("raise an error 'invalid arguments' when parse args given a Boolean schema 
 });
 
 test("return a true and a false result when parse args given 2 Boolean schema 'f' and 'd' and the args '-f'",() => {
-   let fSchema = new BooleanSchema("f");
-   let dSchema = new BooleanSchema("d");
+   const fSchema = new BooleanSchema("f");
+   const dSchema = new BooleanSchema("d");
 
-   let result = new Arguments([fSchema,dSchema],"-f").parse();
+   const result = new Arguments([fSchema,dSchema],"-f").parse();
 
    expect(result).toEqual([{"name":"f","type":"Boolean","value":true},{"name":"d","type":"Boolean","value":false}]);
 });
