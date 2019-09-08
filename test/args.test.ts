@@ -6,7 +6,7 @@ test("return true when parse args given a Boolean schema 'f' and the args '-f'",
 
    const result = new Arguments([schema],"-f").parse();
 
-   expect(result).toEqual([{"name":"f","type":"Boolean","value":true}]);
+   expect(result).toEqual([{"name":"f","type":"boolean","value":true}]);
 });
 
 test("return false when parse args given a Boolean schema 'f' and the empty args ''",() => {
@@ -14,7 +14,7 @@ test("return false when parse args given a Boolean schema 'f' and the empty args
 
    const result = new Arguments([schema],"").parse();
 
-   expect(result).toEqual([{"name":"f","type":"Boolean","value":false}]);
+   expect(result).toEqual([{"name":"f","type":"boolean","value":false}]);
 });
 
 test("raise an error 'invalid arguments' when parse args given a Boolean schema 'f' and the args '-p'",() => {
@@ -33,5 +33,5 @@ test("return a true and a false result when parse args given 2 Boolean schema 'f
 
    const result = new Arguments([fSchema,dSchema],"-f").parse();
 
-   expect(result).toEqual([{"name":"f","type":"Boolean","value":true},{"name":"d","type":"Boolean","value":false}]);
+   expect(result).toEqual([{"name":"f","type":"boolean","value":true},{"name":"d","type":"boolean","value":false}]);
 });
