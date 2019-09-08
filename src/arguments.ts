@@ -1,5 +1,5 @@
 import Schema from "./schema";
-type SchemaTypes = boolean | number
+type SchemaTypes = boolean | number | string
 
 export default class Arguments {
     schemas: {[name: string]: Schema<SchemaTypes>} = {};
@@ -11,13 +11,13 @@ export default class Arguments {
            this.schemas[schema.name] = schema;
            this.unparsedSchemaNames.push(schema.name);
         }
-        this.args = args;
+        this.args = args.trim();
     }
 
     public parse(): object{
         const parsedResult: object[] = [];
 
-        const regex = new RegExp(/-[a-zA-Z]\w*/g);
+        const regex = new RegExp(/(?<!\w)-[a-zA-Z]\w*/g);
         const values = this.args.split(regex).slice(1);
         const params = this.args.match(regex);
 
@@ -33,7 +33,7 @@ export default class Arguments {
 
         for(const unparsedSchemaName of this.unparsedSchemaNames){
             const schema = this.schemas[unparsedSchemaName];
-            if(schema.defaultValue) {
+            if(schema.defaultValue !== undefined) {
                 parsedResult.push({"name": schema.name, "type": schema.type, "value": schema.defaultValue})
             }
         }
