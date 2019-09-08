@@ -1,0 +1,9 @@
+version: "3.7"
+services:
+  dev:
+    image: node:lts
+    working_dir: /app
+    volumes:
+      - ./:/app
+    environment:
+      PATH: $PATH:node_modules/.bin

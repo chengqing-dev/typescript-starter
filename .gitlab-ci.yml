@@ -1,0 +1,6 @@
+
+eslint:
+  script: ./auto/eslint
+
+test:
+  script: ./auto/test
