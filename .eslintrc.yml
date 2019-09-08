@@ -2,12 +2,13 @@ env:
   es6: true
 parserOptions:
   ecmaVersion: 6
+  sourceType: module
+  ecmaFeatures:
+    jsx: true
 parser: "@typescript-eslint/parser"
 extends: "eslint:recommended"
 plugins:
   - "@typescript-eslint"
 rules:
   eqeqeq: ['error','always',{null: 'ignore' }]
-  "@typescript-eslint/class-name-casing": 'error'
-  no-console: off
 
