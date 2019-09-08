@@ -1,11 +1,12 @@
 import Schema from "./schema";
+type SchemaTypes = boolean
 
 export default class Arguments {
-    schemas: {[name: string]: Schema<any>} = {};
+    schemas: {[name: string]: Schema<SchemaTypes>} = {};
     args: string;
     unparsedSchemaNames: string[] = [];
 
-    constructor(schemas: Schema<any>[],args: string) {
+    constructor(schemas: Schema<SchemaTypes>[],args: string) {
         for (const schema of schemas){
            this.schemas[schema.name] = schema;
            this.unparsedSchemaNames.push(schema.name);
@@ -38,7 +39,7 @@ export default class Arguments {
         return parsedResult;
     }
 
-    private removeParsedSchemaName(schemaName: string){
+    private removeParsedSchemaName(schemaName: string): void{
         const index = this.unparsedSchemaNames.indexOf(schemaName, 0);
         if (index > -1) {
             this.unparsedSchemaNames.splice(index, 1);

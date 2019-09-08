@@ -20,6 +20,6 @@
     "test": "jest",
     "precommit": "npm run test-eslint",
     "prepush": "npm run test-eslint",
-    "test-eslint": "eslint src/**/*.ts test/**/*.ts"
+    "test-eslint": "eslint --fix src/**/*.ts test/**/*.ts"
   }
 }
