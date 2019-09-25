@@ -6,7 +6,7 @@ export default class NumberSchema extends BaseSchema<number>{
         super(name,"number",defaultValue);
     }
 
-    gernerateValue(value: string): number {
+    generateValue(value: string): number {
         let result;
         if(value.indexOf(".") > -1){
             result = parseFloat(value)

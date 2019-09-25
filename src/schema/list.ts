@@ -6,7 +6,7 @@ export default class ListSchema extends BaseSchema<string[]>{
         super(name,"list",defaultValue);
     }
 
-    gernerateValue(value: string): string[] {
+    generateValue(value: string): string[] {
         return value.split(",");
     }
 

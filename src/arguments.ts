@@ -1,4 +1,4 @@
-import BaseSchema from "./schema/base_schema";
+import BaseSchema from "./schema/base";
 type SchemaTypes = boolean | number | string | string[]
 
 export default class Arguments {
@@ -34,7 +34,7 @@ export default class Arguments {
             if(schema === undefined){
                 throw Error("invalid arguments")
             }
-            result.push({ "name": schema.name,"type":schema.type,"value":schema.gernerateValue(values[schemaNamesInArgsIndex].trim())})
+            result.push({ "name": schema.name,"type":schema.type,"value":schema.generateValue(values[schemaNamesInArgsIndex].trim())})
         }
     }
 

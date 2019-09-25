@@ -1,4 +1,4 @@
-import BaseSchema from "./base_schema";
+import BaseSchema from "./base";
 
 export default class BooleanSchema extends BaseSchema<boolean>{
 
@@ -6,7 +6,7 @@ export default class BooleanSchema extends BaseSchema<boolean>{
         super(name,"boolean",defaultValue);
     }
 
-    gernerateValue(value: string): boolean {
+    generateValue(value: string): boolean {
         if(value === ""){
             return true
         }

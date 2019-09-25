@@ -9,6 +9,6 @@ export default abstract class BaseSchema<T> {
         this.type = type;
     }
 
-    public abstract gernerateValue(value: string): T;
+    public abstract generateValue(value: string): T;
 
 }

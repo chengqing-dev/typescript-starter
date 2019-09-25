@@ -6,7 +6,7 @@ export default class StringSchema extends BaseSchema<string>{
         super(name,"string",defaultValue);
     }
 
-    gernerateValue(value: string): string {
+    generateValue(value: string): string {
         if(value === ""){
             throw Error("invalid empty value for " + this.name)
         }
